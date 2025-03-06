@@ -6,6 +6,7 @@
 const firebaseConfig = {
   apiKey: "AIzaSyD2u_QXxVbXuvmOWYLUYqNkUzmtlMJp_0w",
   authDomain: "cs-1660-451204.firebaseapp.com",
-}
+};
 
-export default firebaseConfig;
+// Expose firebaseConfig as a global variable named "config"
+window.config = firebaseConfig;
