@@ -127,6 +127,7 @@ async function vote(team) {
 
       if (response.ok) {
         window.alert(`Vote for ${team} submitted.`);
+        window.location.reload(); // Refresh the page to show the updated results
       }
 
     } catch (err) {

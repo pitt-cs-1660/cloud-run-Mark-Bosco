@@ -43,9 +43,9 @@ async def read_root(request: Request):
     # Render the index.html template
     return templates.TemplateResponse("index.html", {
         "request": request,
-        "tabs_count": 0,
-        "spaces_count": 0,
-        "recent_votes": []
+        "tabs_count": tabs_count,
+        "spaces_count": spaces_count,
+        "recent_votes": recent_votes
     })
 
 
@@ -57,7 +57,7 @@ async def create_vote(team: Annotated[str, Form()]):
     # Create a new vote document for Firestore
     vote_data = {
         "team": team, # Tab or Space
-        "created_at": datetime.datetime.now() # Timestamp for recent votes sorting
+        "time_cast": datetime.datetime.utcnow().isoformat() # Timestamp for recent votes sorting
     }
 
     # Add the vote to the Firestore collection
